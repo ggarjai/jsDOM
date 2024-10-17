@@ -2,12 +2,12 @@
 ## Metodos más utilizados
 ### En esta lista cubriremos lo esencial para trabajar con el DOM de manera efectiva y clara para un principiante. Con ella podremos:
 - Seleccionar elementos: `1 getElementById()`, `2 querySelector()`, `3 querySelectorAll()`.
-- Crear elementos: `13 createElement()`, `20 createTextNode()`.
+- Crear elementos: `13 createElement()`, `20 createTextNode()`, `18 cloneNode()`.
 - Navegación: `14 parentElement`, `15 children`, `16 firstElementChild`, `16 lastElementChild`, `17 nextElementSibling`, `17 lastElementSibling`.
 - Manipular contenido: `4 textContent`, `5 innerHTML`, `6 innerText`.
 - Manipular estilos y clases: `7 style`, `8 classList`.
 - Atributos: `9 setAttribute()`, `9 getAttribute()`.
-- Manipular el DOM: `10 appendChild()`, `11 remove()`, `19 removeChild()`, ``.
+- Manipular el DOM: `10 appendChild()`, `11 remove()`, `19 removeChild()`.
 - Escuchar eventos: `12 addEventListener()`.
   
 &emsp;
@@ -77,7 +77,7 @@
 ```
 &emsp;
 ### 6. `element.innerText`:
-- Descripción: Similar a `textContent`, pero tiene en cuenta el estilo y solo muestra el texto visible. También puede provocar un reflow, lo que puede hacerla menos eficiente que `textContent`.
+- Descripción: Similar a `textContent`, pero tiene en cuenta el estilo y solo muestra el texto visible. También puede provocar un reflow (volver a calcular la disposición de los elementos de la web), lo que puede hacerla menos eficiente que `textContent`.
 - Uso: Obtener o establecer solo el texto visible de un elemento.
 - Ejemplo de uso: 
 ```html
@@ -166,6 +166,7 @@
   const boton = document.getElementById('miBoton');
   boton.addEventListener('click', () => {
     alert('¡Botón pulsado!');
+  });
 ```
 &emsp;
 ### 13. `element.createElement()`:
@@ -182,7 +183,7 @@
   contenedor.appendChild(nuevoElemento);  // Añade el nuevo párrafo
 ```
 &emsp;
-### 14. `document.parentElement()`:
+### 14. `element.parentElement`:
 - Descripción: Devuelve el elemento padre inmediato de un nodo en el DOM.
 - Uso: Subir en la jerarquía del DOM para acceder a elementos padres.
 - Ejemplo de uso: 
@@ -258,7 +259,7 @@
 &emsp;
 ### 19. `element.removeChild()`:
 - Descripción: Elimina un nodo hijo específico de un elemento padre.
-- Uso: Quitar un elemento hijo de un contenedor.
+- Uso: Quitar un elemento hijo de su elemento padre.
 - Ejemplo de uso: 
 ```html
 <div id="contenedor">
@@ -271,7 +272,7 @@
   contenedor.removeChild(hijo);  // Elimina el párrafo del contenedor
 ```
 &emsp;
-### 20. `element.createTextNode()`:
+### 20. `createTextNode()`:
 - Descripción: Crea un nodo de texto. Útil si quieres añadir texto sin usar `innerHTML` o `textContent`.
 - Uso: Añadir nodos de texto puro al DOM.
 - Ejemplo de uso: 
