@@ -2,13 +2,13 @@
 ## Metodos más utilizados
 ### En esta lista cubriremos lo esencial para trabajar con el DOM de manera efectiva y clara para un principiante. Con ella podremos:
 - Seleccionar elementos: `1 getElementById()`, `2 querySelector()`, `3 querySelectorAll()`.
-- Crear elementos: `12 createElement()`, `createTextNode()`.
-- Navegación: `13 parentElement`, `14 children`, `15 firstElementChild`, `15 lastElementChild`, `16 nextElementSibling`, `16 lastElementSibling`.
-- Manipular contenido: `4 textContent`, `5 innerHTML`, `innerText`.
-- Manipular estilos y clases: `6 style`, `7 classList`.
-- Atributos: `8 setAttribute()`, `8 getAttribute()`.
-- Manipular el DOM: `9 appendChild()`, `10 remove()`, `removeChild()`, ``.
-- Escuchar eventos: `11 addEventListener()`.
+- Crear elementos: `13 createElement()`, `20 createTextNode()`.
+- Navegación: `14 parentElement`, `15 children`, `16 firstElementChild`, `16 lastElementChild`, `17 nextElementSibling`, `17 lastElementSibling`.
+- Manipular contenido: `4 textContent`, `5 innerHTML`, `6 innerText`.
+- Manipular estilos y clases: `7 style`, `8 classList`.
+- Atributos: `9 setAttribute()`, `9 getAttribute()`.
+- Manipular el DOM: `10 appendChild()`, `11 remove()`, `19 removeChild()`, ``.
+- Escuchar eventos: `12 addEventListener()`.
   
 &emsp;
 ### 1. `document.getElementById()`:
@@ -76,7 +76,20 @@
   contenedor.innerHTML = '<p>Este es un párrafo dentro del contenedor</p>';
 ```
 &emsp;
-### 6. `element.style`:
+### 6. `element.innerText`:
+- Descripción: Similar a `textContent`, pero tiene en cuenta el estilo y solo muestra el texto visible. También puede provocar un reflow, lo que puede hacerla menos eficiente que `textContent`.
+- Uso: Obtener o establecer solo el texto visible de un elemento.
+- Ejemplo de uso: 
+```html
+<p id="textoOculto" style="display:none">Este texto está oculto</p>
+```
+```javascript
+  const textoOculto = document.getElementById('textoOculto');
+  console.log(textoOculto.textContent);  // Imprime el texto aunque esté oculto
+  console.log(textoOculto.innerText);    // No imprime nada porque está oculto
+```
+&emsp;
+### 7. `element.style`:
 - Descripción: Permite cambiar estilos CSS en línea de un elemento HTML.
 - Uso: Cambiar el aspecto visual de un elemento directamente desde JavaScript.
 - Ejemplo de uso: 
@@ -89,7 +102,7 @@
   parrafo.style.fontSize = '20px';
 ```
 &emsp;
-### 7. `element.classList`:
+### 8. `element.classList`:
 - Descripción: Permite agregar (.add), eliminar (.remove) o alternar (.toggle) clases CSS en un elemento.
 - Uso: Manipular clases para aplicar o eliminar estilos.
 - Ejemplo de uso: 
@@ -103,7 +116,7 @@
   parrafo.classList.toggle('oculto');  // Alterna la clase 'oculto'
 ```
 &emsp;
-### 8. `element.setAttribute() & element.getAttribute()`:
+### 9. `element.setAttribute() & element.getAttribute()`:
 - Descripción: Establece o obtiene el valor de un atributo de un elemento HTML.
 - Uso: Manipular atributos como 'src', 'alt', 'href'...
 - Ejemplo de uso: 
@@ -116,7 +129,7 @@
   console.log(imagen.getAttribute('alt'));    // Obtiene el atributo 'alt'
 ```
 &emsp;
-### 9. `element.appendChild()`:
+### 10. `element.appendChild()`:
 - Descripción: Añade un nodo hijo (elemento) al final de la lista de hijos de un elemento padre.
 - Uso: Insertar nuevos elementos dinámicamente.
 - Ejemplo de uso: 
@@ -130,7 +143,7 @@
   contenedor.appendChild(nuevoParrafo);  // Añade el párrafo al contenedor
 ```
 &emsp;
-### 10. `element.remove()`:
+### 11. `element.remove()`:
 - Descripción: Elimina un elemento del DOM.
 - Uso: Quitar elementos de la página.
 - Ejemplo de uso: 
@@ -142,7 +155,7 @@
   parrafo.remove();  // Elimina el párrafo del DOM
 ```
 &emsp;
-### 11. `element.addEventListener()`:
+### 12. `element.addEventListener()`:
 - Descripción: Añade un "escuchador" de eventos a un elemento. Escucha eventos como clics, teclas, etc.
 - Uso: Responder a eventos del usuario como clics o cambios de formularios.
 - Ejemplo de uso: 
@@ -155,7 +168,7 @@
     alert('¡Botón pulsado!');
 ```
 &emsp;
-### 12. `element.createElement()`:
+### 13. `element.createElement()`:
 - Descripción: Crea un nuevo elemento HTML.
 - Uso: Generar elementos de forma dinámica en el DOM.
 - Ejemplo de uso: 
@@ -169,7 +182,7 @@
   contenedor.appendChild(nuevoElemento);  // Añade el nuevo párrafo
 ```
 &emsp;
-### 13. `document.parentElement()`:
+### 14. `document.parentElement()`:
 - Descripción: Devuelve el elemento padre inmediato de un nodo en el DOM.
 - Uso: Subir en la jerarquía del DOM para acceder a elementos padres.
 - Ejemplo de uso: 
@@ -182,7 +195,7 @@
   console.log(hijo.parentElement.id);  // Imprime "padre"
 ```
 &emsp;
-### 14. `element.children`:
+### 15. `element.children`:
 - Descripción: Devuelve una colección HTML de los elementos hijos de un nodo.
 - Uso: Acceder a todos los elementos hijos dentro de un contenedor.
 - Ejemplo de uso: 
@@ -197,7 +210,7 @@
   console.log(contenedor.children);  // Devuelve una colección con los dos <p>
 ```
 &emsp;
-### 15. `element.firstElementChild & element.lastElementChild`:
+### 16. `element.firstElementChild & element.lastElementChild`:
 - Descripción: Devuelve el primer y último elemento hijo de un nodo, respectivamente.
 - Uso: Rápido acceso al primer o último hijo de un contenedor.
 - Ejemplo de uso: 
@@ -213,7 +226,7 @@
   console.log(contenedor.lastElementChild.textContent);   // Imprime "Último hijo"
 ```
 &emsp;
-### 16. `element.nextElementSibling & element.previousElementSibling`:
+### 17. `element.nextElementSibling & element.previousElementSibling`:
 - Descripción: Devuelven el siguiente y anterior hermano (elemento) de un nodo en el DOM.
 - Uso: Navegar entre elementos hermanos.
 - Ejemplo de uso: 
@@ -230,7 +243,7 @@
   console.log(segundo.nextElementSibling.textContent);      // Imprime "Tercero"
 ```
 &emsp;
-### 17. `element.cloneNode()`:
+### 18. `element.cloneNode()`:
 - Descripción: Clona un nodo, con la opción de clonar también sus elementos hijos (deep clone).
 - Uso: Duplicar elementos sin modificar el original.
 - Ejemplo de uso: 
@@ -241,19 +254,6 @@
   const original = document.getElementById('original');
   const copia = original.cloneNode(true);  // Clona el div con su contenido
   document.body.appendChild(copia);        // Añade la copia al final del body
-```
-&emsp;
-### 18. `element.innerText`:
-- Descripción: Similar a `textContent`, pero tiene en cuenta el estilo y solo muestra el texto visible. También puede provocar un reflow, lo que puede hacerla menos eficiente que `textContent`.
-- Uso: Obtener o establecer solo el texto visible de un elemento.
-- Ejemplo de uso: 
-```html
-<p id="textoOculto" style="display:none">Este texto está oculto</p>
-```
-```javascript
-  const textoOculto = document.getElementById('textoOculto');
-  console.log(textoOculto.textContent);  // Imprime el texto aunque esté oculto
-  console.log(textoOculto.innerText);    // No imprime nada porque está oculto
 ```
 &emsp;
 ### 19. `element.removeChild()`:
